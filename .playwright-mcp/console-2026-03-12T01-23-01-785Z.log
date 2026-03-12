@@ -1,0 +1,167 @@
+[     922ms] [WARNING] MUI: You have provided an out-of-range value `undefined` for the select (name="stage") component.
+Consider providing a value that matches one of the available options or ''.
+The available values are "". @ http://localhost:8080/node_modules/.vite/deps/chunk-YEPK4YSP.js?v=53cc8bbf:1291
+[     926ms] [WARNING] MUI: You have provided an out-of-range value `undefined` for the select (name="stage") component.
+Consider providing a value that matches one of the available options or ''.
+The available values are "". @ http://localhost:8080/node_modules/.vite/deps/chunk-YEPK4YSP.js?v=53cc8bbf:1291
+[     961ms] [WARNING] MUI: You have provided an out-of-range value `undefined` for the select (name="stage") component.
+Consider providing a value that matches one of the available options or ''.
+The available values are `69985d292f5a50c711c63fe6`, `69985d292f5a50c711c63fe7`, `69985d292f5a50c711c63fe8`, `69985d292f5a50c711c63fe9`. @ http://localhost:8080/node_modules/.vite/deps/chunk-YEPK4YSP.js?v=53cc8bbf:1291
+[    1003ms] [WARNING] MUI: You have provided an out-of-range value `undefined` for the select (name="stage") component.
+Consider providing a value that matches one of the available options or ''.
+The available values are `69985d292f5a50c711c63fe6`, `69985d292f5a50c711c63fe7`, `69985d292f5a50c711c63fe8`, `69985d292f5a50c711c63fe9`. @ http://localhost:8080/node_modules/.vite/deps/chunk-YEPK4YSP.js?v=53cc8bbf:1291
+[    1047ms] [WARNING] MUI: You have provided an out-of-range value `undefined` for the select (name="stage") component.
+Consider providing a value that matches one of the available options or ''.
+The available values are `69985d292f5a50c711c63fe6`, `69985d292f5a50c711c63fe7`, `69985d292f5a50c711c63fe8`, `69985d292f5a50c711c63fe9`. @ http://localhost:8080/node_modules/.vite/deps/chunk-YEPK4YSP.js?v=53cc8bbf:1291
+[   59765ms] [WARNING] MUI: You have provided an out-of-range value `undefined` for the select (name="stage") component.
+Consider providing a value that matches one of the available options or ''.
+The available values are `69985d292f5a50c711c63fe6`, `69985d292f5a50c711c63fe7`, `69985d292f5a50c711c63fe8`, `69985d292f5a50c711c63fe9`. @ http://localhost:8080/node_modules/.vite/deps/chunk-YEPK4YSP.js?v=53cc8bbf:1291
+[   64617ms] [ERROR] Warning: A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components%s 
+    at input
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at SelectInput2 (http://localhost:8080/node_modules/.vite/deps/chunk-YEPK4YSP.js?v=53cc8bbf:1034:25)
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at div
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at InputBase2 (http://localhost:8080/node_modules/.vite/deps/chunk-IJY3QGXT.js?v=53cc8bbf:495:17)
+    at OutlinedInput2 (http://localhost:8080/node_modules/.vite/deps/chunk-P2GNGGZO.js?v=53cc8bbf:306:17)
+    at Select2 (http://localhost:8080/node_modules/.vite/deps/chunk-YEPK4YSP.js?v=53cc8bbf:1917:17)
+    at div
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at FormControl2 (http://localhost:8080/node_modules/.vite/deps/chunk-IKCQHGOZ.js?v=53cc8bbf:122:17)
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at TextField2 (http://localhost:8080/node_modules/.vite/deps/chunk-BOA73ILE.js?v=53cc8bbf:114:17)
+    at Controller (http://localhost:8080/node_modules/.vite/deps/chunk-LE2DBYVV.js?v=53cc8bbf:304:35)
+    at RHFSelect (http://localhost:8080/src/components/forms/hook-form/rhf-select.tsx:35:29)
+    at div
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at Grid2 (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:2768:24)
+    at form
+    at FormProvider (http://localhost:8080/node_modules/.vite/deps/chunk-LE2DBYVV.js?v=53cc8bbf:80:11)
+    at FormProvider (http://localhost:8080/src/providers/hook-form/form-provider.tsx:22:32)
+    at div
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at CardContent2 (http://localhost:8080/node_modules/.vite/deps/chunk-LPKH2LC4.js?v=53cc8bbf:86:17)
+    at div
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at Paper2 (http://localhost:8080/node_modules/.vite/deps/chunk-CXRPHJLY.js?v=53cc8bbf:125:17)
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at Card2 (http://localhost:8080/node_modules/.vite/deps/chunk-OCKPAUZT.js?v=53cc8bbf:91:17)
+    at div
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at Container3 (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:1929:19)
+    at OpportunityCreateView (http://localhost:8080/src/sections/management/accounts/opportunities/views/opportunity-create-view.tsx?t=1773277749744:44:19)
+    at OpportunityCreatePage (http://localhost:8080/src/pages/management/accounts/opportunities/new.tsx?t=1773277749744:27:19)
+    at PermissionGuard (http://localhost:8080/src/auth/guard/permission-guard.tsx:30:43)
+    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3535:5)
+    at Outlet (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3975:26)
+    at Suspense
+    at PermissionGuard (http://localhost:8080/src/auth/guard/permission-guard.tsx:30:43)
+    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3535:5)
+    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3535:5)
+    at Outlet (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3975:26)
+    at Suspense
+    at main
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at Box3 (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:578:19)
+    at Main (http://localhost:8080/src/layouts/management/main.tsx:31:32)
+    at div
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at Box3 (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:578:19)
+    at DashboardLayout (http://localhost:8080/src/layouts/management/layout.tsx?t=1773277749744:42:43)
+    at AuthGuard (http://localhost:8080/src/auth/guard/auth-guard.tsx:29:37)
+    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3535:5)
+    at Router (http://localhost:8080/src/routes/sections/index.tsx?t=1773277900398:32:12)
+    at AuthConsumer (http://localhost:8080/src/auth/context/jwt/auth-consumer.tsx:25:32)
+    at SnackbarProvider2 (http://localhost:8080/node_modules/.vite/deps/notistack.js?v=6ecc2cbc:1232:24)
+    at SnackbarProvider (http://localhost:8080/src/components/feedback/snackbar/snackbar-provider.tsx:32:44)
+    at div
+    at MotionDOMComponent (http://localhost:8080/node_modules/.vite/deps/framer-motion.js?v=62ad0b8e:9008:40)
+    at LazyMotion (http://localhost:8080/node_modules/.vite/deps/framer-motion.js?v=62ad0b8e:8204:23)
+    at MotionLazy (http://localhost:8080/src/components/utils/animate/motion-lazy.tsx:22:30)
+    at RTL (http://localhost:8080/src/theme/options/right-to-left.tsx:28:31)
+    at DefaultPropsProvider (http://localhost:8080/node_modules/.vite/deps/chunk-AT3FFK5F.js?v=53cc8bbf:1515:3)
+    at RtlProvider (http://localhost:8080/node_modules/.vite/deps/chunk-JCPPDUG6.js?v=53cc8bbf:32:5)
+    at ThemeProvider (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:912:5)
+    at ThemeProvider2 (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:1024:5)
+    at ThemeProvider (http://localhost:8080/node_modules/.vite/deps/chunk-6VWQMYMU.js?v=53cc8bbf:301:12)
+    at ThemeProvider (http://localhost:8080/src/theme/index.tsx:40:41)
+    at SettingsProvider (http://localhost:8080/src/components/layout/settings/context/settings-provider.tsx:31:36)
+    at LocalizationProvider2 (http://localhost:8080/node_modules/.vite/deps/chunk-AOIVQFLD.js?v=53cc8bbf:39:17)
+    at LocalizationProvider (http://localhost:8080/src/providers/localization/localization-provider.tsx:24:48)
+    at AuthProvider (http://localhost:8080/src/auth/context/jwt/auth-provider.tsx:105:32)
+    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/chunk-GNTI4N5Y.js?v=53cc8bbf:2787:3)
+    at ErrorBoundary (http://localhost:8080/src/components/utils/errors/error-boundary.tsx:201:9)
+    at App
+    at Suspense
+    at Router (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3982:15)
+    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=55057965:547:5)
+    at r2 (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=711f61ed:387:21) @ http://localhost:8080/node_modules/.vite/deps/chunk-QF2P4EEA.js?v=53cc8bbf:520
+[   64619ms] [ERROR] MUI: A component is changing the uncontrolled value state of Select to be controlled.
+Elements should not switch from uncontrolled to controlled (or vice versa).
+Decide between using a controlled or uncontrolled Select element for the lifetime of the component.
+The nature of the state is determined during the first render. It's considered controlled if the value is not `undefined`.
+More info: https://fb.me/react-controlled-components @ http://localhost:8080/node_modules/.vite/deps/chunk-VGLPVBP6.js?v=53cc8bbf:59
+[  201190ms] [ERROR] Warning: Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.%s 
+
+Check the render method of `OpportunityMilestonesView`.  
+    at OpportunityMilestonesView (http://localhost:8080/src/sections/management/accounts/opportunities/views/opportunity-milestones-view.tsx:27:45)
+    at ShowIf (http://localhost:8080/src/utils/ui/showIf.tsx:22:26)
+    at div
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at Container3 (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:1929:19)
+    at ShowIf (http://localhost:8080/src/utils/ui/showIf.tsx:22:26)
+    at div
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at Box3 (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:578:19)
+    at div
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at Box3 (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:578:19)
+    at CustomScreen (http://localhost:8080/src/components/layout/custom-screen/custom-screen.tsx?t=1773277749744:30:40)
+    at OpportunityDetailView (http://localhost:8080/src/sections/management/accounts/opportunities/views/opportunity-detail-view.tsx?t=1773277749744:43:19)
+    at OpportunityDetailPage (http://localhost:8080/src/pages/management/accounts/opportunities/detail.tsx?t=1773277900398:27:19)
+    at PermissionGuard (http://localhost:8080/src/auth/guard/permission-guard.tsx:30:43)
+    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3535:5)
+    at Outlet (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3975:26)
+    at Suspense
+    at PermissionGuard (http://localhost:8080/src/auth/guard/permission-guard.tsx:30:43)
+    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3535:5)
+    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3535:5)
+    at Outlet (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3975:26)
+    at Suspense
+    at main
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at Box3 (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:578:19)
+    at Main (http://localhost:8080/src/layouts/management/main.tsx:31:32)
+    at div
+    at http://localhost:8080/node_modules/.vite/deps/chunk-STOSELFH.js?v=53cc8bbf:476:49
+    at Box3 (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:578:19)
+    at DashboardLayout (http://localhost:8080/src/layouts/management/layout.tsx?t=1773277749744:42:43)
+    at AuthGuard (http://localhost:8080/src/auth/guard/auth-guard.tsx:29:37)
+    at RenderedRoute (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3535:5)
+    at Router (http://localhost:8080/src/routes/sections/index.tsx?t=1773277900398:32:12)
+    at AuthConsumer (http://localhost:8080/src/auth/context/jwt/auth-consumer.tsx:25:32)
+    at SnackbarProvider2 (http://localhost:8080/node_modules/.vite/deps/notistack.js?v=6ecc2cbc:1232:24)
+    at SnackbarProvider (http://localhost:8080/src/components/feedback/snackbar/snackbar-provider.tsx:32:44)
+    at div
+    at MotionDOMComponent (http://localhost:8080/node_modules/.vite/deps/framer-motion.js?v=62ad0b8e:9008:40)
+    at LazyMotion (http://localhost:8080/node_modules/.vite/deps/framer-motion.js?v=62ad0b8e:8204:23)
+    at MotionLazy (http://localhost:8080/src/components/utils/animate/motion-lazy.tsx:22:30)
+    at RTL (http://localhost:8080/src/theme/options/right-to-left.tsx:28:31)
+    at DefaultPropsProvider (http://localhost:8080/node_modules/.vite/deps/chunk-AT3FFK5F.js?v=53cc8bbf:1515:3)
+    at RtlProvider (http://localhost:8080/node_modules/.vite/deps/chunk-JCPPDUG6.js?v=53cc8bbf:32:5)
+    at ThemeProvider (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:912:5)
+    at ThemeProvider2 (http://localhost:8080/node_modules/.vite/deps/chunk-GOZFLCE2.js?v=53cc8bbf:1024:5)
+    at ThemeProvider (http://localhost:8080/node_modules/.vite/deps/chunk-6VWQMYMU.js?v=53cc8bbf:301:12)
+    at ThemeProvider (http://localhost:8080/src/theme/index.tsx:40:41)
+    at SettingsProvider (http://localhost:8080/src/components/layout/settings/context/settings-provider.tsx:31:36)
+    at LocalizationProvider2 (http://localhost:8080/node_modules/.vite/deps/chunk-AOIVQFLD.js?v=53cc8bbf:39:17)
+    at LocalizationProvider (http://localhost:8080/src/providers/localization/localization-provider.tsx:24:48)
+    at AuthProvider (http://localhost:8080/src/auth/context/jwt/auth-provider.tsx:105:32)
+    at QueryClientProvider (http://localhost:8080/node_modules/.vite/deps/chunk-GNTI4N5Y.js?v=53cc8bbf:2787:3)
+    at ErrorBoundary (http://localhost:8080/src/components/utils/errors/error-boundary.tsx:201:9)
+    at App
+    at Suspense
+    at Router (http://localhost:8080/node_modules/.vite/deps/chunk-EYKN5BU5.js?v=53cc8bbf:3982:15)
+    at BrowserRouter (http://localhost:8080/node_modules/.vite/deps/react-router-dom.js?v=55057965:547:5)
+    at r2 (http://localhost:8080/node_modules/.vite/deps/react-helmet-async.js?v=711f61ed:387:21) @ http://localhost:8080/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=e023f85c:63

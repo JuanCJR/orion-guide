@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orion Hub — Guía de Uso: Marketing, CRM y Preventa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orion-dark: #1a1d23;
+  --orion-charcoal: #2d3039;
+  --orion-slate: #3f4354;
+  --orion-muted: #6b7080;
+  --orion-silver: #9ca3af;
+  --orion-light: #e5e7eb;
+  --orion-ghost: #f3f4f6;
+  --orion-white: #ffffff;
+  --orion-red: #e74c5e;
+  --orion-red-dark: #c9374a;
+  --orion-teal: #0ea5a0;
+  --orion-teal-light: #14b8b2;
+  --orion-blue: #3b82f6;
+  --orion-amber: #f59e0b;
+  --orion-green: #10b981;
+  --orion-purple: #8b5cf6;
+  --accent: var(--orion-red);
+  --accent-dark: var(--orion-red-dark);
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+  --radius: 8px;
+  --radius-lg: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--orion-dark);
+  background: var(--orion-ghost);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 18, 0.92);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  cursor: zoom-out;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.lightbox-overlay.active { display: flex; opacity: 1; }
+.lightbox-overlay img {
+  max-width: 95vw;
+  max-height: 92vh;
+  border-radius: var(--radius);
+  box-shadow: 0 0 80px rgba(0,0,0,0.5);
+  object-fit: contain;
+}
+.lightbox-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 10000;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.2); }
+.lightbox-caption {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  background: rgba(0,0,0,0.5);
+  padding: 0.5rem 1.5rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  background: var(--orion-dark);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: white;
+}
+.header-logo {
+  width: 36px;
+  height: 36px;
+  background: var(--accent);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: -0.5px;
+}
+.header-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: -0.3px;
+}
+.header-nav { display: flex; gap: 0.25rem; }
+.header-nav a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.header-nav a:hover { color: white; background: rgba(255,255,255,0.08); }
+
+/* ===== TABLE OF CONTENTS ===== */
+.toc-section {
+  max-width: 1280px;
+  margin: 3rem auto 0;
+  padding: 0 2rem;
+}
+.toc-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 3rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.toc-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin-bottom: 0.3rem;
+  color: var(--orion-dark);
+}
+.toc-subtitle {
+  color: var(--orion-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.toc-group h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--orion-dark);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.toc-group h3 .toc-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.toc-group ul { list-style: none; }
+.toc-group li { margin-bottom: 0.3rem; }
+.toc-group a {
+  color: var(--orion-slate);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s;
+}
+.toc-group a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ===== HERO ===== */
+.hero {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 1rem;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  color: var(--orion-dark);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-desc {
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  color: var(--orion-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--orion-silver);
+  font-size: 0.85rem;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 2rem 4rem;
+}
+
+/* ===== SECTION ===== */
+.section {
+  margin-bottom: 4rem;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--orion-light);
+}
+.section-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.section-icon.marketing { background: linear-gradient(135deg, #e74c5e20, #e74c5e10); color: var(--orion-red); }
+.section-icon.crm { background: linear-gradient(135deg, #3b82f620, #3b82f610); color: var(--orion-blue); }
+.section-icon.presales { background: linear-gradient(135deg, #8b5cf620, #8b5cf610); color: var(--orion-purple); }
+.section-icon.settings { background: linear-gradient(135deg, #6b708020, #6b708010); color: var(--orion-slate); }
+.section-icon.flow { background: linear-gradient(135deg, #10b98120, #10b98110); color: var(--orion-green); }
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--orion-dark);
+  letter-spacing: -0.3px;
+}
+.section-header p {
+  color: var(--orion-muted);
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
+}
+
+/* ===== SUBSECTION ===== */
+.subsection {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.subsection h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--orion-dark);
+  margin-bottom: 0.5rem;
+}
+.subsection > p {
+  color: var(--orion-slate);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+}
+
+/* ===== SCREENSHOT ===== */
+.screenshot-wrap {
+  margin: 1.5rem 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--orion-light);
+  cursor: zoom-in;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+.screenshot-wrap:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+.screenshot-wrap img {
+  width: 100%;
+  display: block;
+}
+.screenshot-caption {
+  background: var(--orion-ghost);
+  padding: 0.6rem 1rem;
+  font-size: 0.82rem;
+  color: var(--orion-muted);
+  border-top: 1px solid var(--orion-light);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.screenshot-caption::before {
+  content: '📸';
+  font-size: 0.85rem;
+}
+
+/* ===== FEATURE LIST ===== */
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.feature-item {
+  padding: 1.25rem;
+  background: var(--orion-ghost);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--accent);
+}
+.feature-item h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--orion-dark);
+  margin-bottom: 0.3rem;
+}
+.feature-item p {
+  font-size: 0.85rem;
+  color: var(--orion-muted);
+  line-height: 1.6;
+}
+
+/* ===== STEP LIST ===== */
+.steps {
+  counter-reset: step;
+  margin: 1.5rem 0;
+}
+.step {
+  counter-increment: step;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--orion-ghost);
+  border-radius: var(--radius);
+}
+.step::before {
+  content: counter(step);
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+.step-content h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--orion-dark);
+  margin-bottom: 0.2rem;
+}
+.step-content p {
+  font-size: 0.88rem;
+  color: var(--orion-muted);
+  line-height: 1.6;
+}
+
+/* ===== TAG ===== */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  background: rgba(59,130,246,0.1);
+  color: var(--orion-blue);
+}
+.tag.red { background: rgba(231,76,94,0.1); color: var(--orion-red); }
+.tag.green { background: rgba(16,185,129,0.1); color: var(--orion-green); }
+.tag.purple { background: rgba(139,92,246,0.1); color: var(--orion-purple); }
+.tag.amber { background: rgba(245,158,11,0.1); color: var(--orion-amber); }
+
+/* ===== FLOW DIAGRAM ===== */
+.flow-diagram {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--orion-dark), var(--orion-charcoal));
+  border-radius: var(--radius-lg);
+  color: white;
+  overflow-x: auto;
+}
+.flow-diagram h4 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: rgba(255,255,255,0.9);
+}
+.flow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.flow-node {
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 130px;
+  position: relative;
+}
+.flow-node.marketing { background: rgba(231,76,94,0.2); border: 1px solid rgba(231,76,94,0.4); color: #fca5b0; }
+.flow-node.crm { background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.4); color: #93c5fd; }
+.flow-node.presales { background: rgba(139,92,246,0.2); border: 1px solid rgba(139,92,246,0.4); color: #c4b5fd; }
+.flow-node.win { background: rgba(16,185,129,0.2); border: 1px solid rgba(16,185,129,0.4); color: #6ee7b7; }
+.flow-arrow {
+  color: rgba(255,255,255,0.4);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.flow-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== PIPELINE TABLE ===== */
+.pipeline-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+.pipeline-table th {
+  background: var(--orion-dark);
+  color: white;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.pipeline-table th:first-child { border-radius: var(--radius) 0 0 0; }
+.pipeline-table th:last-child { border-radius: 0 var(--radius) 0 0; }
+.pipeline-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--orion-light);
+}
+.pipeline-table tr:nth-child(even) td { background: var(--orion-ghost); }
+
+/* ===== ALERT/NOTE ===== */
+.note {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.note.info { background: #eff6ff; border-left: 3px solid var(--orion-blue); color: #1e40af; }
+.note.tip { background: #f0fdf4; border-left: 3px solid var(--orion-green); color: #166534; }
+.note.warn { background: #fffbeb; border-left: 3px solid var(--orion-amber); color: #92400e; }
+.note-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--orion-dark);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 2.5rem 2rem;
+  font-size: 0.85rem;
+}
+.site-footer strong { color: rgba(255,255,255,0.8); }
+
+/* ===== PRINT ===== */
+@media print {
+  body { background: white; font-size: 11pt; }
+  .site-header { position: static; box-shadow: none; background: white; color: black; }
+  .header-nav { display: none; }
+  .header-title { color: black; }
+  .lightbox-overlay { display: none !important; }
+  .section { break-inside: avoid; }
+  .subsection { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+  .screenshot-wrap { break-inside: avoid; box-shadow: none; }
+  .screenshot-wrap:hover { transform: none; box-shadow: none; }
+  .flow-diagram { color: black; background: #f3f4f6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .toc-card { box-shadow: none; border: 1px solid #ddd; }
+  .hero { padding-top: 2rem; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header-nav { display: none; }
+  .hero h1 { font-size: 2rem; }
+  .subsection { padding: 1.5rem; }
+  .toc-card { padding: 1.5rem; }
+  .feature-list { grid-template-columns: 1fr; }
+  .flow-row { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+  .hero-meta { flex-direction: column; gap: 0.5rem; align-items: center; }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.section { animation: fadeUp 0.6s ease both; }
+.section:nth-child(2) { animation-delay: 0.1s; }
+.section:nth-child(3) { animation-delay: 0.15s; }
+.section:nth-child(4) { animation-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="header-brand" href="#">
+      <div class="header-logo">OH</div>
+      <span class="header-title">Orion Hub — Guía de Uso</span>
+    </a>
+    <nav class="header-nav">
+      <a href="#toc">Contenido</a>
+      <a href="#marketing">Marketing</a>
+      <a href="#crm">CRM</a>
+      <a href="#presales">Preventa</a>
+      <a href="#config">Configuración</a>
+      <a href="#flujo">Flujo</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">📘 Documentación Oficial</div>
+  <h1>Guía de Módulos<br><em>Marketing, CRM &amp; Preventa</em></h1>
+  <p class="hero-desc">
+    Manual completo para ejecutivos de ventas, gerentes de marketing, managers de preventa
+    y stakeholders. Aprenda a utilizar las herramientas de Orion Hub para gestionar todo
+    el ciclo comercial de su organización.
+  </p>
+  <div class="hero-meta">
+    <span class="hero-meta-item">📅 Marzo 2026</span>
+    <span class="hero-meta-item">🏢 Orión Global</span>
+    <span class="hero-meta-item">🔖 Versión 1.0</span>
+  </div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="toc-section" id="toc">
+  <div class="toc-card">
+    <h2 class="toc-title">Tabla de Contenidos</h2>
+    <p class="toc-subtitle">Navegue por las secciones de esta guía</p>
+    <div class="toc-grid">
+      <div class="toc-group">
+        <h3><span class="toc-icon" style="background:rgba(231,76,94,0.1);color:var(--orion-red);">📣</span> Marketing</h3>
+        <ul>
+          <li><a href="#mk-lists">Listas de Marketing</a></li>
+          <li><a href="#mk-templates">Templates de Email</a></li>
+          <li><a href="#mk-campaigns">Campañas de Email</a></li>
+          <li><a href="#mk-forms">Formularios</a></li>
+          <li><a href="#mk-events">Eventos</a></li>
+        </ul>
+      </div>
+      <div class="toc-group">
+        <h3><span class="toc-icon" style="background:rgba(59,130,246,0.1);color:var(--orion-blue);">💼</span> CRM — Oportunidades</h3>
+        <ul>
+          <li><a href="#crm-kanban">Vista Kanban</a></li>
+          <li><a href="#crm-list">Vista de Lista</a></li>
+          <li><a href="#crm-detail">Detalle de Oportunidad</a></li>
+          <li><a href="#crm-quotes">Quote Items &amp; Cotización</a></li>
+          <li><a href="#crm-milestones">Hitos de Facturación</a></li>
+          <li><a href="#crm-history">Historial de Actividad</a></li>
+          <li><a href="#crm-create">Crear Oportunidad</a></li>
+          <li><a href="#crm-lost">Marcar como Perdida</a></li>
+        </ul>
+      </div>
+      <div class="toc-group">
+        <h3><span class="toc-icon" style="background:rgba(139,92,246,0.1);color:var(--orion-purple);">🎯</span> Preventa</h3>
+        <ul>
+          <li><a href="#pre-kanban">Tablero Kanban de Tickets</a></li>
+          <li><a href="#pre-detail">Detalle de Ticket</a></li>
+        </ul>
+      </div>
+      <div class="toc-group">
+        <h3><span class="toc-icon" style="background:rgba(107,112,128,0.1);color:var(--orion-slate);">⚙️</span> Configuración &amp; Flujo</h3>
+        <ul>
+          <li><a href="#cfg-opp-stages">Etapas de Oportunidades</a></li>
+          <li><a href="#cfg-pre-stages">Etapas de Preventa</a></li>
+          <li><a href="#cfg-pre-types">Tipos de Preventa</a></li>
+          <li><a href="#flujo">Diagrama de Flujo Completo</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+<!-- ============================================================ -->
+<!-- MARKETING -->
+<!-- ============================================================ -->
+<section class="section" id="marketing">
+  <div class="section-header">
+    <div class="section-icon marketing">📣</div>
+    <div>
+      <h2>Marketing</h2>
+      <p>Gestión de listas, templates, campañas de email, formularios y eventos</p>
+    </div>
+  </div>
+
+  <!-- LISTS -->
+  <div class="subsection" id="mk-lists">
+    <h3>Listas de Marketing</h3>
+    <p>
+      Las listas permiten segmentar contactos para campañas de email y otras acciones comerciales.
+      Orion Hub soporta dos tipos de listas: <span class="tag">Static</span> y <span class="tag purple">Dynamic</span>.
+    </p>
+
+    <div class="feature-list">
+      <div class="feature-item">
+        <h4>Listas Estáticas</h4>
+        <p>Guardan una foto fija de los contactos al momento de crearlas. No se actualizan automáticamente.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Listas Dinámicas (Smart Lists)</h4>
+        <p>Se actualizan automáticamente a medida que los contactos cumplen o dejan de cumplir los criterios de filtro definidos.</p>
+      </div>
+    </div>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/marketing-lists.png" alt="Lista de Marketing Lists" data-caption="Vista principal de Marketing Lists con listas estáticas y dinámicas">
+      <div class="screenshot-caption">Vista principal de "Lists" — tabla con nombre, tipo, contactos, estado y fecha de creación</div>
+    </div>
+
+    <p>Para acceder, navegue a <span class="tag">Marketing</span> → <span class="tag">"Lists"</span> en el menú lateral. Desde aquí puede ver todas las listas existentes y crear nuevas con el botón <span class="tag red">"+ New List"</span>.</p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/marketing-list-detail.png" alt="Detalle de lista de marketing" data-caption="Detalle de una lista estática mostrando información general, contactos y configuración">
+      <div class="screenshot-caption">Detalle de la lista "Lista Demo - Clientes Potenciales Cloud" — tabs de General, Contactos, Actividad y Configuración</div>
+    </div>
+
+    <p>Al hacer clic en una lista, accede a su vista de detalle que incluye pestañas para ver la información general, los contactos incluidos, la actividad reciente y la configuración de la lista.</p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/marketing-list-create.png" alt="Crear lista dinámica con filter builder" data-caption="Formulario de creación de lista dinámica con constructor de filtros">
+      <div class="screenshot-caption">Creación de lista dinámica — constructor de filtros con propiedades, operadores, grupos y resultados estimados en tiempo real</div>
+    </div>
+
+    <div class="note tip">
+      <span class="note-icon">💡</span>
+      <div>
+        <strong>Consejo:</strong> Las listas dinámicas muestran un panel lateral de <em>"Estimated Results"</em> que indica en tiempo real cuántos contactos cumplen los criterios. Úselo para validar sus filtros antes de guardar.
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATES -->
+  <div class="subsection" id="mk-templates">
+    <h3>Templates de Email</h3>
+    <p>
+      Los templates son plantillas reutilizables para campañas de email. Se crean con el editor visual
+      drag-and-drop de GrapesJS que permite diseñar emails profesionales sin necesidad de conocer HTML.
+      Cada template incluye un <em>subject</em>, <em>preheader</em> y categoría.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/marketing-templates.png" alt="Lista de Email Templates" data-caption="Vista principal de Email Templates">
+      <div class="screenshot-caption">Vista principal de "Templates" — tabla con nombre, subject, categoría, uso y estado</div>
+    </div>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/marketing-template-detail.png" alt="Detalle de template de email" data-caption="Detalle del template con preview del email y metadatos">
+      <div class="screenshot-caption">Detalle del template "Template Demo - Bienvenida" con preview del email, estado y metadata</div>
+    </div>
+
+    <p>
+      Para acceder, navegue a <span class="tag">Marketing</span> → <span class="tag">"Templates"</span>.
+      Los templates soportan variables de personalización como <code>{{firstName}}</code> y
+      <code>{{lastName}}</code> para adaptar el contenido a cada destinatario.
+    </p>
+
+    <div class="note info">
+      <span class="note-icon">ℹ️</span>
+      <div>
+        <strong>Nota:</strong> Al editar un template se abre el editor GrapesJS con bloques arrastrables (texto, imágenes, botones, columnas). Cualquier cambio incrementa automáticamente el número de versión.
+      </div>
+    </div>
+  </div>
+
+  <!-- CAMPAIGNS -->
+  <div class="subsection" id="mk-campaigns">
+    <h3>Campañas de Email</h3>
+    <p>
+      Las campañas combinan un template con una lista de destinatarios para enviar emails masivos.
+      Cada campaña registra métricas detalladas de entrega: recipients, sent, open rate y fails.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/marketing-campaigns.png" alt="Lista de Email Campaigns" data-caption="Vista principal de Email Campaigns">
+      <div class="screenshot-caption">Vista principal de "Emails" — campañas con subject, recipients, sent, open rate y estado</div>
+    </div>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/marketing-campaign-detail.png" alt="Detalle de campaña de email" data-caption="Detalle de campaña con estadísticas de envío, entrega y apertura">
+      <div class="screenshot-caption">Detalle de "Campaña Demo - Lanzamiento Adobe" — estadísticas, progreso de entrega y tasa de apertura</div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-content">
+          <h4>Crear la campaña</h4>
+          <p>Haga clic en <span class="tag red">"+ New Campaign"</span>. Complete el nombre, subject, seleccione un template y asigne las listas de destinatarios.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-content">
+          <h4>Revisar y enviar</h4>
+          <p>Desde el detalle de la campaña, revise las estadísticas en las pestañas "General", "Analytics", "Recipients" y "Opens". Cuando esté listo, envíe la campaña.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-content">
+          <h4>Monitorear resultados</h4>
+          <p>Las barras de progreso muestran en tiempo real los emails entregados y abiertos. Use estos datos para optimizar futuras campañas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMS -->
+  <div class="subsection" id="mk-forms">
+    <h3>Formularios</h3>
+    <p>
+      Los formularios capturan leads directamente desde su sitio web. Cada formulario genera una URL pública
+      y un código de inserción (embed code) para integrarlo en cualquier página. Los envíos se registran
+      con métricas de confirmación y detección de spam.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/marketing-forms.png" alt="Lista de Marketing Forms" data-caption="Vista principal de Marketing Forms">
+      <div class="screenshot-caption">Vista principal de "Forms" — formularios con slug, estado, submissions, confirmados y spam</div>
+    </div>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/marketing-form-detail.png" alt="Detalle de formulario de marketing" data-caption="Detalle del formulario con preview interactivo">
+      <div class="screenshot-caption">Detalle de "Formulario Demo - Contacto" — información, previsualización en vivo, y pestañas de campos, configuración, código de inserción, analíticas y envíos</div>
+    </div>
+
+    <div class="feature-list">
+      <div class="feature-item">
+        <h4>URL Pública</h4>
+        <p>Cada formulario tiene su propia URL accesible directamente sin necesidad de embed.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Personalización</h4>
+        <p>Configure título público, mensaje de bienvenida y mensaje de éxito para personalizar la experiencia del visitante.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Campos Configurables</h4>
+        <p>Defina los campos del formulario desde la pestaña "Campos", incluyendo validaciones y campos obligatorios.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Código de Inserción</h4>
+        <p>Obtenga el código HTML/JS desde la pestaña "Código de Inserción" para integrar el formulario en su sitio web.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENTS -->
+  <div class="subsection" id="mk-events">
+    <h3>Eventos</h3>
+    <p>
+      Gestione webinars, conferencias y reuniones. Cada evento puede ser virtual o presencial, con
+      registro de ubicación/plataforma, fechas de inicio y término, y seguimiento de asistentes.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/marketing-events.png" alt="Lista de Marketing Events" data-caption="Vista principal de Marketing Events">
+      <div class="screenshot-caption">Vista principal de "Events" — tabla con título, tipo, ubicación, fechas y número de asistentes</div>
+    </div>
+
+    <p>
+      Navegue a <span class="tag">Marketing</span> → <span class="tag">"Events"</span> para ver todos los eventos.
+      Use el botón <span class="tag red">"+ New Event"</span> para crear un nuevo evento con todos sus detalles.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CRM -->
+<!-- ============================================================ -->
+<section class="section" id="crm">
+  <div class="section-header">
+    <div class="section-icon crm">💼</div>
+    <div>
+      <h2>CRM — Oportunidades</h2>
+      <p>Pipeline comercial, cotizaciones, hitos de facturación y gestión del ciclo de ventas</p>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="subsection">
+    <h3>Navegación del Módulo CRM</h3>
+    <p>
+      El módulo CRM se encuentra en el menú lateral bajo la sección <span class="tag">"Gestión"</span> → <span class="tag">"CRM"</span>.
+      Desde aquí accede a "Opportunities", "Preventa" y "Activities".
+    </p>
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/sidebar-management.png" alt="Sidebar con CRM expandido" data-caption="Menú lateral mostrando la sección CRM con sus submódulos">
+      <div class="screenshot-caption">Menú lateral — sección CRM expandida con Opportunities, Preventa y Activities</div>
+    </div>
+  </div>
+
+  <!-- KANBAN -->
+  <div class="subsection" id="crm-kanban">
+    <h3>Vista Kanban de Oportunidades</h3>
+    <p>
+      La vista Kanban organiza las oportunidades por etapa del pipeline en columnas arrastrables.
+      Cada tarjeta muestra el nombre de la oportunidad, empresa, monto estimado, fecha de cierre y
+      ejecutivo asignado. Las columnas muestran el total acumulado por etapa.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/opportunities-kanban.png" alt="Vista Kanban de Oportunidades" data-caption="Tablero Kanban con 4 etapas del pipeline: Presentation, Proposal, Best Few y Win">
+      <div class="screenshot-caption">Vista Kanban — pipeline con etapas Presentation ($150,000), Proposal ($0), Best Few ($0) y Win ($0)</div>
+    </div>
+
+    <table class="pipeline-table">
+      <thead>
+        <tr>
+          <th>Etapa</th>
+          <th>Probabilidad</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag">Presentation</span></td>
+          <td>25%</td>
+          <td>Presentación inicial al cliente. La oportunidad ha sido identificada y se está preparando la propuesta de valor.</td>
+        </tr>
+        <tr>
+          <td><span class="tag amber">Proposal</span></td>
+          <td>50%</td>
+          <td>Se ha enviado una propuesta formal al cliente. Se están negociando términos y condiciones.</td>
+        </tr>
+        <tr>
+          <td><span class="tag purple">Best Few</span></td>
+          <td>75%</td>
+          <td>El cliente ha reducido las opciones a los mejores candidatos. Alta probabilidad de cierre.</td>
+        </tr>
+        <tr>
+          <td><span class="tag green">Win</span></td>
+          <td>100%</td>
+          <td>La oportunidad ha sido ganada. Se procede con la implementación y facturación.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note tip">
+      <span class="note-icon">💡</span>
+      <div>
+        <strong>Consejo:</strong> Arrastre las tarjetas entre columnas para mover oportunidades de etapa. Use los botones de vista (esquina superior derecha) para alternar entre Kanban y lista.
+      </div>
+    </div>
+  </div>
+
+  <!-- LIST VIEW -->
+  <div class="subsection" id="crm-list">
+    <h3>Vista de Lista</h3>
+    <p>
+      La vista de lista presenta todas las oportunidades en formato tabular con columnas ordenables:
+      nombre, empresa, etapa, revenue estimado, ejecutivo y fecha estimada de cierre.
+      Ideal para búsquedas y filtros avanzados.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/opportunities-list.png" alt="Vista de lista de Oportunidades" data-caption="Vista tabular de oportunidades con columnas ordenables">
+      <div class="screenshot-caption">Vista de lista — columnas ordenables con Opportunity Name, Empresa, Stage, Est. Revenue, Ejecutivo y Est. Close Date</div>
+    </div>
+  </div>
+
+  <!-- DETAIL -->
+  <div class="subsection" id="crm-detail">
+    <h3>Detalle de Oportunidad — Información</h3>
+    <p>
+      La vista de detalle es el centro de comando de cada oportunidad. Muestra toda la información
+      organizada en cuatro pestañas: "Información", "Quotes", "Hitos de facturación" y "Activity History".
+      En la cabecera se muestra el TCV (Total Contract Value), la fecha de cierre editable y el botón
+      <span class="tag red">"Mark as Lost"</span>.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/opportunity-detail-info.png" alt="Detalle de oportunidad - Información" data-caption="Pestaña de información con datos básicos, financieros y tickets de preventa">
+      <div class="screenshot-caption">Pestaña "Información" — datos básicos, información financiera y tickets de Presales vinculados</div>
+    </div>
+
+    <div class="feature-list">
+      <div class="feature-item">
+        <h4>Información Básica</h4>
+        <p>Nombre, descripción, empresa, stage actual, ejecutivo comercial y presales asignado.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Financial Information</h4>
+        <p>Estimated Revenue, Expected Close Date, fecha de creación y última actualización.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Presales Tickets</h4>
+        <p>Tickets de preventa vinculados con prioridad, tipo, plazo de entrega y stage de bloqueo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUOTES -->
+  <div class="subsection" id="crm-quotes">
+    <h3>Quote Items — Cotización</h3>
+    <p>
+      La pestaña "Quotes" gestiona los ítems cotizados de la oportunidad. Cada quote item incluye:
+      SKU (producto), customer term, ciclo de facturación, cantidad, precio, costo, margen porcentual,
+      descuento, subtotal y total. El sistema calcula automáticamente los totales y el TCV.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/opportunity-detail-quotes.png" alt="Quote Items de oportunidad" data-caption="Pestaña de Quotes con items cotizados, precios, márgenes y totales">
+      <div class="screenshot-caption">Pestaña "Quotes" — 2 items de Adobe Acrobat Pro con cálculo automático de Subtotal, Descuento, Total y TCV</div>
+    </div>
+
+    <div class="note info">
+      <span class="note-icon">ℹ️</span>
+      <div>
+        <strong>Jerarquía de productos:</strong> Al agregar un quote item, primero seleccione el <strong>Partner</strong> (ej: Adobe),
+        luego el <strong>SKU</strong> (ej: Adobe Acrobat Pro) y finalmente el <strong>Plan</strong> (ej: Único, Anual).
+        Esta jerarquía de dropdowns dependientes garantiza la consistencia de los datos.
+      </div>
+    </div>
+
+    <p>
+      Use el botón <span class="tag">"+ Añadir artículo"</span> para agregar nuevos items y
+      <span class="tag">"View PDF"</span> para generar un PDF de la cotización.
+    </p>
+  </div>
+
+  <!-- MILESTONES -->
+  <div class="subsection" id="crm-milestones">
+    <h3>Hitos de Facturación</h3>
+    <p>
+      Los hitos de facturación (billing milestones) se generan automáticamente cuando los quote items
+      tienen ciclo de facturación "One-time or Milestones". Cada hito registra: item, número de milestone,
+      fecha de pago, monto, costo, margen porcentual y comentarios.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/opportunity-detail-milestones.png" alt="Hitos de facturación" data-caption="Pestaña de Hitos de facturación con milestones auto-generados">
+      <div class="screenshot-caption">Pestaña "Hitos de facturación" — 2 milestones auto-generados con Total Milestones = $140,000</div>
+    </div>
+
+    <div class="note tip">
+      <span class="note-icon">💡</span>
+      <div>
+        <strong>Importante:</strong> Los milestones se crean automáticamente al agregar quote items. El total de milestones
+        debe coincidir con el TCV de la oportunidad. Los milestones permiten planificar la facturación escalonada del proyecto.
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTORY -->
+  <div class="subsection" id="crm-history">
+    <h3>Historial de Actividad</h3>
+    <p>
+      La pestaña "Activity History" registra cronológicamente todas las acciones realizadas en la oportunidad:
+      creación de quote items, cambios de ejecutivo, actualizaciones de stage, etc. Cada entrada muestra
+      el tipo de acción, el usuario responsable y los detalles específicos del cambio.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/opportunity-detail-history.png" alt="Historial de actividad" data-caption="Timeline de actividad con acciones de creación y actualización">
+      <div class="screenshot-caption">Pestaña "Activity History" — timeline con creación de Quote Items y cambio de Ejecutivo Comercial</div>
+    </div>
+  </div>
+
+  <!-- CREATE -->
+  <div class="subsection" id="crm-create">
+    <h3>Crear Nueva Oportunidad</h3>
+    <p>
+      Para crear una oportunidad, haga clic en <span class="tag red">"+ New Opportunity"</span> desde la vista de
+      Kanban o lista. Complete los campos obligatorios marcados con asterisco (*).
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/opportunity-create-form.png" alt="Formulario de creación de oportunidad" data-caption="Formulario con todos los campos para crear una nueva oportunidad">
+      <div class="screenshot-caption">Formulario "Create Opportunity" — campos Empresa, Opportunity Name, Stage, Estimated Revenue, Ejecutivo Comercial, Estimated Close Date y Descripción</div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-content">
+          <h4>Seleccionar Empresa</h4>
+          <p>Busque y seleccione la empresa (organización) asociada a esta oportunidad.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-content">
+          <h4>Definir nombre y etapa</h4>
+          <p>Asigne un nombre descriptivo y seleccione la etapa inicial del pipeline (generalmente "Presentation").</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-content">
+          <h4>Completar datos financieros</h4>
+          <p>Ingrese el revenue estimado y la fecha estimada de cierre. Asigne el ejecutivo comercial responsable.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-content">
+          <h4>Guardar</h4>
+          <p>Haga clic en <span class="tag">"Create Opportunity"</span>. La oportunidad aparecerá en el pipeline y podrá comenzar a agregar quote items.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARK AS LOST -->
+  <div class="subsection" id="crm-lost">
+    <h3>Marcar Oportunidad como Perdida</h3>
+    <p>
+      Cuando una oportunidad no se concreta, puede marcarla como perdida usando el botón
+      <span class="tag red">"Mark as Lost"</span> en la cabecera del detalle. Esto abre un diálogo
+      donde debe ingresar obligatoriamente la razón de la pérdida.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/opportunity-mark-as-lost-dialog.png" alt="Diálogo Mark as Lost" data-caption="Diálogo de confirmación para marcar oportunidad como perdida">
+      <div class="screenshot-caption">Diálogo "Mark Opportunity as Lost" — campo obligatorio de "Lost Reason" y botones Cancelar / Mark as Lost</div>
+    </div>
+
+    <div class="note warn">
+      <span class="note-icon">⚠️</span>
+      <div>
+        <strong>Atención:</strong> Las oportunidades marcadas como perdidas desaparecen del tablero Kanban pero
+        permanecen visibles en la vista de lista con filtros. Asegúrese de documentar la razón de pérdida
+        para análisis futuros del pipeline.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PRESALES -->
+<!-- ============================================================ -->
+<section class="section" id="presales">
+  <div class="section-header">
+    <div class="section-icon presales">🎯</div>
+    <div>
+      <h2>Preventa</h2>
+      <p>Gestión de tickets de preventa vinculados a oportunidades comerciales</p>
+    </div>
+  </div>
+
+  <div class="subsection" id="pre-kanban">
+    <h3>Tablero Kanban de Tickets</h3>
+    <p>
+      Los tickets de preventa se gestionan en un tablero Kanban con cuatro etapas:
+      <span class="tag">New</span>, <span class="tag">In Progress</span>,
+      <span class="tag amber">In Review</span> y <span class="tag green">Closed</span>.
+      Cada ticket muestra su número, prioridad, oportunidad vinculada, descripción, plazo de entrega
+      y asignado.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/presales-kanban.png" alt="Kanban de Presales" data-caption="Tablero Kanban de Presales Tickets con 4 etapas">
+      <div class="screenshot-caption">Tablero Kanban de Preventa — Ticket #1 en etapa "New" vinculado a Opp Adobe, con 15 días restantes</div>
+    </div>
+
+    <div class="feature-list">
+      <div class="feature-item">
+        <h4>Prioridad Visual</h4>
+        <p>Cada ticket muestra su nivel de prioridad con íconos de color (High = bandera roja, Medium = amarilla, Low = verde).</p>
+      </div>
+      <div class="feature-item">
+        <h4>Tiempo Restante</h4>
+        <p>Indicador de días restantes hasta la fecha de entrega, con colores que cambian según la urgencia.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Stage Blocking</h4>
+        <p>Los tickets pueden bloquear el avance de la oportunidad a la siguiente etapa del pipeline hasta que se completen.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Vinculación a Oportunidad</h4>
+        <p>Cada ticket está vinculado a una oportunidad específica, permitiendo ver el contexto comercial completo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection" id="pre-detail">
+    <h3>Detalle de Ticket de Preventa</h3>
+    <p>
+      La vista de detalle muestra toda la información del ticket organizada en dos paneles:
+      información del ticket (izquierda) y notas (derecha).
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/presales-ticket-detail.png" alt="Detalle de ticket de preventa" data-caption="Vista de detalle del ticket con información completa y notas">
+      <div class="screenshot-caption">Detalle del Presales Ticket #1 — Stage, Oportunidad, Priority, Request Type (Demo), Service Type (Project/Consulting), Delivery Date y Blocking Stage</div>
+    </div>
+
+    <table class="pipeline-table">
+      <thead>
+        <tr>
+          <th>Campo</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Stage</strong></td><td>Etapa actual del ticket (New, In Progress, In Review, Closed)</td></tr>
+        <tr><td><strong>Oportunidad</strong></td><td>Enlace directo a la oportunidad vinculada</td></tr>
+        <tr><td><strong>Priority</strong></td><td>Nivel de prioridad: Low, Medium, High, Critical</td></tr>
+        <tr><td><strong>Request Type</strong></td><td>Tipo de solicitud: Budget, Demo, POC, Proposal, Meeting, etc.</td></tr>
+        <tr><td><strong>Service Type</strong></td><td>Tipo de servicio: Project/Consulting, Licensing, Support, etc.</td></tr>
+        <tr><td><strong>Delivery Date</strong></td><td>Fecha límite de entrega con indicador de días restantes</td></tr>
+        <tr><td><strong>Blocking Stage</strong></td><td>Etapa del pipeline que este ticket bloquea (ej: "Next: Proposal")</td></tr>
+        <tr><td><strong>Assigned To</strong></td><td>Persona responsable de resolver el ticket</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CONFIGURATION -->
+<!-- ============================================================ -->
+<section class="section" id="config">
+  <div class="section-header">
+    <div class="section-icon settings">⚙️</div>
+    <div>
+      <h2>Configuración</h2>
+      <p>Personalización de etapas del pipeline, tipos de solicitud y tipos de servicio</p>
+    </div>
+  </div>
+
+  <div class="subsection" id="cfg-opp-stages">
+    <h3>Etapas de Oportunidades</h3>
+    <p>
+      Configure las etapas del pipeline comercial desde <span class="tag">Configuración</span> →
+      <span class="tag">"Cuentas"</span> → <span class="tag">"Opportunities"</span>.
+      Cada etapa tiene nombre, tipo (En curso / Win / Lost), probabilidad de cierre, orden de visualización y estado.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/settings-opportunity-stages.png" alt="Configuración de etapas de oportunidad" data-caption="Tabla de configuración de Opportunity Stages">
+      <div class="screenshot-caption">Configuración de "Opportunity Stages" — Presentation (25%), Proposal (50%), Best Few (75%), Win (100%)</div>
+    </div>
+  </div>
+
+  <div class="subsection" id="cfg-pre-stages">
+    <h3>Etapas de Preventa</h3>
+    <p>
+      Las etapas del flujo de preventa se configuran en <span class="tag">Configuración</span> →
+      <span class="tag">"Cuentas"</span> → <span class="tag">"Presales Stages"</span>.
+      Cada etapa define si es inicial o final, y su orden en el flujo.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/settings-presales-stages.png" alt="Configuración de etapas de preventa" data-caption="Tabla de configuración de Presales Ticket Stages">
+      <div class="screenshot-caption">Configuración de "Presales Ticket Stages" — New (initial), In Progress, In Review, Closed (final)</div>
+    </div>
+  </div>
+
+  <div class="subsection" id="cfg-pre-types">
+    <h3>Tipos de Solicitud y Servicio de Preventa</h3>
+    <p>
+      Desde <span class="tag">Configuración</span> → <span class="tag">"Cuentas"</span> →
+      <span class="tag">"Presales"</span> configure los tipos de solicitud (Request Types)
+      y tipos de servicio (Service Types) disponibles al crear tickets de preventa.
+    </p>
+
+    <div class="screenshot-wrap" onclick="openLightbox(this)">
+      <img src="images/settings-presales-types.png" alt="Configuración de tipos de preventa" data-caption="Configuración de Request Types y Service Types de preventa">
+      <div class="screenshot-caption">Configuración de "Presales Settings" — Request Types: Budget, Demo, POC, Proposal, Internal Service, Meeting</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FLOW DIAGRAM -->
+<!-- ============================================================ -->
+<section class="section" id="flujo">
+  <div class="section-header">
+    <div class="section-icon flow">🔄</div>
+    <div>
+      <h2>Flujo Completo del Ciclo Comercial</h2>
+      <p>Diagrama integrado de Marketing → CRM → Preventa → Cierre</p>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3>Diagrama de Flujo Integrado</h3>
+    <p>
+      Este diagrama muestra cómo los tres módulos trabajan juntos para gestionar el ciclo comercial
+      completo, desde la generación de leads hasta el cierre de la venta.
+    </p>
+
+    <div class="flow-diagram">
+      <h4>Ciclo Comercial Completo — Marketing → CRM → Preventa → Cierre</h4>
+
+      <div class="flow-label">FASE 1: GENERACIÓN DE LEADS</div>
+      <div class="flow-row">
+        <div class="flow-node marketing">📋 Listas<br><small>Segmentar contactos</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node marketing">✉️ Campañas<br><small>Email marketing</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node marketing">📝 Formularios<br><small>Captura de leads</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node marketing">📅 Eventos<br><small>Webinars / meetups</small></div>
+      </div>
+
+      <div class="flow-label" style="margin-top:1.5rem;">FASE 2: PIPELINE COMERCIAL</div>
+      <div class="flow-row">
+        <div class="flow-node crm">📊 Presentation<br><small>25% prob.</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node crm">📄 Proposal<br><small>50% prob.</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node crm">⭐ Best Few<br><small>75% prob.</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node win">🏆 Win<br><small>100% — Cerrado</small></div>
+      </div>
+
+      <div class="flow-label" style="margin-top:1.5rem;">FASE 3: SOPORTE DE PREVENTA (paralelo al pipeline)</div>
+      <div class="flow-row">
+        <div class="flow-node presales">🆕 New<br><small>Ticket creado</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node presales">🔧 In Progress<br><small>En desarrollo</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node presales">👁️ In Review<br><small>En revisión</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node presales">✅ Closed<br><small>Completado</small></div>
+      </div>
+
+      <div class="flow-label" style="margin-top:1.5rem;">FASE 4: FACTURACIÓN</div>
+      <div class="flow-row">
+        <div class="flow-node crm">💰 Quote Items<br><small>Cotización</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node crm">📆 Milestones<br><small>Hitos de pago</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node win">✅ Facturación<br><small>Cobro ejecutado</small></div>
+      </div>
+    </div>
+
+    <div class="note info">
+      <span class="note-icon">ℹ️</span>
+      <div>
+        <strong>Flujo de bloqueo:</strong> Los tickets de preventa pueden configurarse para bloquear el avance de la
+        oportunidad a una etapa específica. Por ejemplo, un ticket de tipo "Demo" puede bloquear la transición
+        de "Presentation" a "Proposal" hasta que la demostración se complete. Esto garantiza que todos los
+        requisitos técnicos se cumplan antes de avanzar en el pipeline.
+      </div>
+    </div>
+
+    <h3 style="margin-top:2rem;">Resumen de Interacciones entre Módulos</h3>
+
+    <table class="pipeline-table">
+      <thead>
+        <tr>
+          <th>Desde</th>
+          <th>Hacia</th>
+          <th>Interacción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag red">Marketing</span></td>
+          <td><span class="tag">CRM</span></td>
+          <td>Los leads generados por formularios, campañas y eventos se convierten en oportunidades en el pipeline.</td>
+        </tr>
+        <tr>
+          <td><span class="tag">CRM</span></td>
+          <td><span class="tag purple">Preventa</span></td>
+          <td>Desde la oportunidad se crean tickets de preventa para demos, POCs, presupuestos, etc.</td>
+        </tr>
+        <tr>
+          <td><span class="tag purple">Preventa</span></td>
+          <td><span class="tag">CRM</span></td>
+          <td>Los tickets completados desbloquean etapas del pipeline, permitiendo avanzar la oportunidad.</td>
+        </tr>
+        <tr>
+          <td><span class="tag">CRM</span></td>
+          <td><span class="tag green">Facturación</span></td>
+          <td>Los quote items generan automáticamente hitos de facturación para planificar los cobros.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>
+    <strong>Orion Hub</strong> — Guía de Módulos Marketing, CRM y Preventa<br>
+    © 2026 Orión Global. Todos los derechos reservados.<br>
+    Documento generado en Marzo 2026 · Versión 1.0
+  </p>
+</footer>
+
+<!-- LIGHTBOX SCRIPT -->
+<script>
+function openLightbox(el) {
+  const img = el.querySelector('img');
+  const overlay = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const caption = document.getElementById('lightbox-caption');
+  lbImg.src = img.src;
+  lbImg.alt = img.alt;
+  caption.textContent = img.dataset.caption || img.alt;
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
+// Smooth scroll for TOC links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
